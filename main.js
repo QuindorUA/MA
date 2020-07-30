@@ -5,7 +5,7 @@ submButton.onclick = function () {
     validateEmail(emailAdd);
     let usernameAdd = document.getElementById("username");
     validateUsername(usernameAdd);
-    let passwordAdd = document.getElementById("password",);
+    let passwordAdd = document.getElementById("password");
     validatePassword(passwordAdd);
     let passwordConfirmAdd = document.getElementById("passwordConfirm");
     validatePasswordConfirm(passwordConfirmAdd);
@@ -17,9 +17,9 @@ function validateEmail(email) {
     let result = emailPattern.test(email.value);
     console.dir(result);
     if(result===true){
-        email.style.border = "2px solid green"
+        email.style.border = "2px solid green";
     }else{
-        email.style.border = "2px solid red"
+        email.style.border = "2px solid red";
     }
 }
 
@@ -28,9 +28,9 @@ function validateUsername(username) {
     let result = usernamePattern.test(username.value);
     console.dir(result);
     if(result===true){
-        username.style.border = "2px solid green"
+        username.style.border = "2px solid green";
     }else{
-        username.style.border = "2px solid red"
+        username.style.border = "2px solid red";
     }
 }
 
@@ -39,17 +39,20 @@ function validatePassword(password) {
     let result = passwordPattern.test(password.value);
     console.dir(result);
     if(result===true){
-        password.style.border = "2px solid green"
+        password.style.border = "2px solid green";
     }else{
-        password.style.border = "2px solid red"
+        password.style.border = "2px solid red";
     }
-}function validatePasswordConfirm(passwordConfirm) {
-    let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-    let result = passwordPattern.test(passwordConfirm.value);
-    console.dir(result);
-    if(result===true){
-        passwordConfirm.style.border = "2px solid green"
+}
+
+function validatePasswordConfirm(passwordConfirm) {
+    if(passwordConfirm.value!=""){
+        if(passwordConfirm.value == document.getElementById("password").value){
+            passwordConfirm.style.border = "2px solid green";
+        }else{
+            passwordConfirm.style.border = "2px solid red";
+        }
     }else{
-        passwordConfirm.style.border = "2px solid red"
+        passwordConfirm.style.border = "2px solid red";
     }
 }
